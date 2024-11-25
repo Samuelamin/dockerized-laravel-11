@@ -60,7 +60,7 @@ services:
     image: node:16
     container_name: laravel-node
     restart: unless-stopped
-    working_dir: /var/www
+    working_dir: /var/www/app
     volumes:
       - .:/var/www
     command: sh -c "npm install && npm run build"
