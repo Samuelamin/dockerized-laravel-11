@@ -42,10 +42,10 @@ services:
     container_name: phpmyadmin
     restart: unless-stopped
     environment:
-      PMA_HOST: mysql      # Hostname of the MySQL container
-      MYSQL_ROOT_PASSWORD: root  # MySQL root password
+      PMA_HOST: mysql      
+      MYSQL_ROOT_PASSWORD: root 
     ports:
-      - "8080:80"          # Expose phpMyAdmin on port 8080
+      - "8073:80"         
     networks:
       - laravel-network
   
@@ -53,6 +53,17 @@ services:
     image: redis:alpine
     container_name: laravel-redis
     restart: unless-stopped
+    networks:
+      - laravel-network
+
+  node:
+    image: node:16
+    container_name: laravel-node
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - .:/var/www
+    command: sh -c "npm install && npm run build"
     networks:
       - laravel-network
 
