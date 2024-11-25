@@ -9,10 +9,15 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     curl \
+    npm \
     git \
     libpq-dev \
     libzip-dev \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
+
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g npm@latest
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
