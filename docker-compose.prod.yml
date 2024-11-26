@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   nginx:
     image: nginx:alpine
@@ -8,6 +10,8 @@ services:
       - .:/var/www
     ports:
       - "80:80"
+    depends_on:
+      - app
     networks:
       - laravel-network
 
