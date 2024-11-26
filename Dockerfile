@@ -25,8 +25,7 @@ WORKDIR /var/www
 COPY . .
 
 # Set permissions
-RUN chmod +x /var/www/entrypoint.sh
-
+RUN chmod +x entrypoint.sh
 
 ENTRYPOINT ["/var/www/entrypoint.sh"]
 CMD ["php-fpm"]
