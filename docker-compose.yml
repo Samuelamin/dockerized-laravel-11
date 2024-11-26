@@ -6,6 +6,8 @@ services:
     image: laravel-app
     container_name: laravel-app
     restart: unless-stopped
+    working_dir: /var/www/app
+    command: sh /run-app-commands.sh
     volumes:
       - .:/var/www
     networks:
