@@ -12,6 +12,7 @@ services:
       - .:/var/www
     networks:
       - laravel-network
+    user: www-data
 
   mysql:
     image: mysql:8.0
