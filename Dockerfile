@@ -30,10 +30,9 @@ COPY . .
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/app \
-    && chmod -R 755 /var/www/app
+    && chmod -R 755 /var/www/app \
+    && chmod -R 775 /var/www/app/storage /var/www/app/bootstrap/cache
 
-RUN chown -R www-data:www-data /var/www \
-&& chmod -R 775 /var/www/storage /var/www/bootstrap/cache
     
 # Expose port 9000
 EXPOSE 9000
