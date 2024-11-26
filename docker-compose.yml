@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   app:
     build:
@@ -16,31 +18,19 @@ services:
     container_name: laravel-mysql
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: laravel
-      MYSQL_USER: laravel
-      MYSQL_PASSWORD: laravel
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER:  ${DB_USERNAME}
+      MYSQL_PASSWORD:  ${DB_PASSWORD}
     volumes:
       - mysql-data:/var/lib/mysql
     networks:
       - laravel-network
 
-
   redis:
     image: redis:alpine
     container_name: laravel-redis
     restart: unless-stopped
-    networks:
-      - laravel-network
-
-  node:
-    image: node:16
-    container_name: laravel-node
-    restart: unless-stopped
-    working_dir: /var/www/app
-    volumes:
-      - .:/var/www/app
-    command: sh -c "npm install && npm run build"
     networks:
       - laravel-network
 
