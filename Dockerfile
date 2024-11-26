@@ -25,7 +25,8 @@ WORKDIR /var/www
 COPY . .
 
 # Set permissions
-RUN chmod +x entrypoint.sh
+RUN chmod +x /var/www/entrypoint.sh \
+    && chown www-data:www-data /var/www/entrypoint.sh
 
 ENTRYPOINT ["/var/www/entrypoint.sh"]
 CMD ["php-fpm"]
