@@ -1,0 +1,28 @@
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: laravel-nginx
+    restart: unless-stopped
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - .:/var/www
+    ports:
+      - "8000:80"
+    networks:
+      - laravel-network
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql      
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8073:80"         
+    networks:
+      - laravel-network
+
+networks:
+  laravel-network:

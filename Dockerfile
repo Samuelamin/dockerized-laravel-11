@@ -29,9 +29,6 @@ WORKDIR /var/www
 COPY . .
 
 # Set permissions
-RUN chown -R www-data:www-data /var/www \
-    && chmod -R 755 /var/www
-
 RUN chown -R www-data:www-data /var/www/app \
     && chmod -R 755 /var/www/app
     
