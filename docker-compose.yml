@@ -5,14 +5,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: samuelamin/dockerized-laravel-11
+    image: laravel-app
     container_name: laravel-app
     restart: unless-stopped
     volumes:
       - .:/var/www
     networks:
       - laravel-network
-    user: www-data
 
   mysql:
     image: mysql:8.0
