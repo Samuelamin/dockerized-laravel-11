@@ -20,9 +20,9 @@ services:
     container_name: phpmyadmin
     restart: unless-stopped
     environment:
-      PMA_HOST: mysql
-      PMA_USER: root
-      PMA_PASSWORD: root
+      PMA_HOST: laravel-mysql
+      PMA_USER: ${DB_PASSWORD}
+      PMA_PASSWORD: ${DB_PASSWORD}
     ports:
       - "8073:80"
     networks:
