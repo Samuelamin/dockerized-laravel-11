@@ -21,7 +21,7 @@ services:
     restart: unless-stopped
     environment:
       PMA_HOST: laravel-mysql
-      PMA_USER: ${DB_PASSWORD}
+      PMA_USER: ${DB_USERNAME}
       PMA_PASSWORD: ${DB_PASSWORD}
     ports:
       - "8073:80"
