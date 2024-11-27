@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: samuelamin/dockerized-laravel-11
-    container_name: laravel-app
+    # container_name: laravel-app
     restart: unless-stopped
     volumes:
       - .:/var/www
