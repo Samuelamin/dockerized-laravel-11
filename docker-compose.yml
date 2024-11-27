@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: laravel-app
+    image: samuelamin/dockerized-laravel-11
     container_name: laravel-app
     restart: unless-stopped
     volumes:
@@ -20,8 +20,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_USER:  ${DB_USERNAME}
-      MYSQL_PASSWORD:  ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
     volumes:
       - mysql-data:/var/lib/mysql
     networks:
