@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: laravel-app
+    image: samuelamin/dockerized-laravel-11
     container_name: laravel-app
     restart: unless-stopped
     volumes:
