@@ -1,15 +1,4 @@
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: laravel_app
-    restart: unless-stopped
-    volumes:
-      - .:/var/www
-    networks:
-      - laravel-network
-      
   nginx:
     image: nginx:alpine
     container_name: laravel-nginx
